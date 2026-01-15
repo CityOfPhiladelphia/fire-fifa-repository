@@ -11,7 +11,6 @@ async function flattenFiles(item) {
         return [{ name: item.name, url: item.download_url }];
     } else if (item.type === "dir") {
         const children = await fetch(item.url).then((res) => res.json());
-        // If children is not an array, return empty array
         const childItems = Array.isArray(children) ? children : [];
         const results = await Promise.all(childItems.map(flattenFiles));
         return results.flat();
@@ -26,13 +25,12 @@ async function main() {
         root = await response.json();
 
         if (!Array.isArray(root)) {
-            // If API returned an error, log it
             console.error("GitHub API returned an error:", root.message || root);
-            root = []; // fallback to empty
+            root = [];
         }
     } catch (err) {
         console.error("Failed to fetch from GitHub:", err);
-        root = []; // fallback to empty
+        root = [];
     }
 
     let allFiles = [];
