@@ -36,10 +36,8 @@ jobs:
           node-version: lts/*
           cache: 'npm'
       - name: Install dependencies
-        working-directory: ./pfd-portal
         run: npm ci
       - name: Build
-        working-directory: ./pfd-portal
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
