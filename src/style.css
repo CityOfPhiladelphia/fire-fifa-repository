@@ -38,11 +38,11 @@ footer { background:#2c3e50; color:white; margin-top:40px; }
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* full viewport height */
+  min-height: 100vh;
 }
 
 .container {
-  flex: 1; /* fills remaining space, pushing footer down */
+  flex: 1;
 }
 
 

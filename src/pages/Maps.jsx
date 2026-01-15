@@ -24,7 +24,6 @@ export default function Maps() {
                 : f.url;
 
         return [
-            // File Name column: full-cell clickable button
             h(
                 "button",
                 {
@@ -42,7 +41,6 @@ export default function Maps() {
                 },
                 f.name
             ),
-            // Actions column: full-cell download button
             h(
                 "a",
                 {
