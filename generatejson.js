@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 
 const USER = "CityOfPhiladelphia";
 const REPO = "fire-fifa-repository";
-const ROOT_API = `https://api.github.com/repos/${USER}/${REPO}/contents/Maps`;
+const ROOT_API = `https://api.github.com/repos/${USER}/${REPO}/contents/contents/Maps`;
 
 async function flattenFiles(item) {
     if (item.type === "file") {
