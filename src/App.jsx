@@ -18,10 +18,10 @@ function App() {
                     <NavBar />
                     <div className="container">
                         <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/maps" element={<Maps />} />
-                            <Route path="/gis" element={<GIS />} />
-                            <Route path="/other" element={<Other />} />
+                            <Route path="/fire-fifa-repository" element={<Home />} />
+                            <Route path="/fire-fifa-repository/maps" element={<Maps />} />
+                            <Route path="/fire-fifa-repository/gis" element={<GIS />} />
+                            <Route path="/fire-fifa-repository/other" element={<Other />} />
                         </Routes>
                     </div>
                     <Footer />
