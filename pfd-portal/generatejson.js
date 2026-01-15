@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import fetch from "node-fetch"; // install with npm i node-fetch@3
+import fetch from "node-fetch";
 
 const USER = "CityOfPhiladelphia";
 const REPO = "fire-fifa-repository";
@@ -11,14 +11,30 @@ async function flattenFiles(item) {
         return [{ name: item.name, url: item.download_url }];
     } else if (item.type === "dir") {
         const children = await fetch(item.url).then((res) => res.json());
-        const results = await Promise.all(children.map(flattenFiles));
+        // If children is not an array, return empty array
+        const childItems = Array.isArray(children) ? children : [];
+        const results = await Promise.all(childItems.map(flattenFiles));
         return results.flat();
     }
     return [];
 }
 
 async function main() {
-    const root = await fetch(ROOT_API).then((res) => res.json());
+    let root;
+    try {
+        const response = await fetch(ROOT_API);
+        root = await response.json();
+
+        if (!Array.isArray(root)) {
+            // If API returned an error, log it
+            console.error("GitHub API returned an error:", root.message || root);
+            root = []; // fallback to empty
+        }
+    } catch (err) {
+        console.error("Failed to fetch from GitHub:", err);
+        root = []; // fallback to empty
+    }
+
     let allFiles = [];
     for (const item of root) {
         const files = await flattenFiles(item);
