@@ -48,6 +48,7 @@ async function main() {
     );
 
     console.log(`maps.json generated with ${allFiles.length} files`);
+    console.log(`${path.join(publicDir, "maps.json")}`);
 }
 
 main().catch(console.error);
