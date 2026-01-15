@@ -1,0 +1,86 @@
+/* ===== General ===== */
+body { margin:0;
+  font-family: Segoe UI, Arial, ui-sans-serif; background:#f2f4f8; }
+.container { max-width:1300px; margin:auto; padding:20px; }
+
+/* ===== Cursor ===== */
+body { cursor: url("/asset/logo.png") 16 16, auto; }
+a, button, input, .file { cursor: url("/asset/logo.png") 16 16, pointer; }
+
+/* ===== Navigation ===== */
+nav {
+  background:#8b0000; color:white; display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+nav .brand { font-size:20px; font-weight:600; display:flex; align-items:center; }
+nav .brand img { height:40px; margin-right:10px; }
+nav .links a { color:white; margin-left:20px; text-decoration:none; font-weight:500; transition:0.2s; }
+nav .links a:hover { text-decoration:underline; }
+
+/* ===== Search ===== */
+.search { width:100%; padding:16px; font-size:18px; border-radius:10px; border:1px solid #ccc; margin:20px 0; display:block; }
+
+/* ===== Categories ===== */
+.category { background:white; border-radius:12px; margin-bottom:25px; padding:12px; box-shadow:0 4px 10px rgba(0,0,0,.05); }
+.catHeader { display:flex; justify-content:space-between; cursor:pointer; }
+.file { display:flex; justify-content:space-between; padding:12px; border-bottom:1px solid #eee; }
+.file:hover { background:#f7f9fb; }
+.tags span { background:#c0392b; color:white; padding:3px 8px; border-radius:5px; font-size:12px; margin-left:6px; }
+
+/* ===== Footer ===== */
+footer { background:#2c3e50; color:white; margin-top:40px; }
+.footer-wrap { max-width:1300px; margin:auto; padding:25px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+.footer-title { font-weight:600; margin-bottom:10px; }
+.footer-link { color:#ccc; text-decoration:none; display:block; margin:6px 0; }
+.footer-link:hover { color:white; }
+.footer-bottom { background:#1a252f; text-align:center; padding:10px; font-size:13px; opacity:.8; }
+/* ===== Full page flex for sticky footer ===== */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+.container {
+  flex: 1; /* fills remaining space, pushing footer down */
+}
+
+
+.file-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.file-header, .file-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 12px;
+  align-items: center;
+}
+
+.file-header {
+  background: #f0f0f0;
+  font-weight: 600;
+}
+
+.file-row {
+  border-top: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.file-row:hover {
+  background: #f7f9fb;
+}
+
+.file-row a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.file-row a:hover {
+  text-decoration: underline;
+}
+

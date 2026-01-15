@@ -1,0 +1,41 @@
+.maps-container {
+    max-width: 1800px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    font-family: "Segoe UI", sans-serif;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.maps-container h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.file-name-btn {
+    font-size: 16px;
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.file-name-btn:hover {
+    color: #1d6fd1;
+}
+
+.download-btn {
+    font-weight: bold;
+    color: #3498db;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #3498db;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    color: #fff;
+    background-color: #3498db;
+}
