@@ -8,13 +8,21 @@ export default function Maps() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("/maps.json")
-            .then(res => res.json())
+        fetch(`${import.meta.env.BASE_URL}maps.json`)
+            .then(res => {
+                if (!res.ok) throw new Error("Failed to load maps.json");
+                return res.json();
+            })
             .then(data => {
                 setFiles(data);
                 setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
             });
     }, []);
+
 
     const gridData = files.map(f => {
         const ext = f.name.split(".").pop().toUpperCase();
