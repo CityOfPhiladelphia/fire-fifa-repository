@@ -10,10 +10,10 @@ export default function NavBar() {
                 🚒 PFD FIFA 2026 Portal ⚽
             </div>
             <div className="links">
-                <Link to="/fire-fifa-repository">Home</Link>
-                <Link to="/fire-fifa-repository/maps">Maps</Link>
-                <Link to="/fire-fifa-repository/gis">GIS</Link>
-                <Link to="/fire-fifa-repository/other">Other</Link>
+                <Link to="/">Home</Link>
+                <Link to="/maps">Maps</Link>
+                <Link to="/gis">GIS</Link>
+                <Link to="/other">Other</Link>
             </div>
         </nav>
     );
