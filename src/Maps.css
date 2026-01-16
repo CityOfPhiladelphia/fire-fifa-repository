@@ -3,39 +3,42 @@
     margin: 50px auto;
     padding: 30px 40px;
     font-family: "Segoe UI", sans-serif;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: #fff8f6; /* subtle fire-toned background */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.15); /* deep red shadow */
 }
 
 .maps-container h1 {
     font-size: 32px;
     margin-bottom: 25px;
-    color: #2c3e50;
+    color: #8b0000; /* deep fire red */
 }
 
 .file-name-btn {
     font-size: 16px;
-    color: #3498db;
+    color: #ff4500; /* bright fire orange */
     text-decoration: underline;
+    transition: color 0.2s;
 }
 
 .file-name-btn:hover {
-    color: #1d6fd1;
+    color: #e03e00; /* darker orange on hover */
 }
 
 .download-btn {
     font-weight: bold;
-    color: #3498db;
+    color: #8b0000; /* deep red border/text */
     text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    border: 1px solid #3498db;
-    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 2px solid #8b0000;
+    background-color: #fff3f2; /* light fire background */
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 .download-btn:hover {
     color: #fff;
-    background-color: #3498db;
+    background-color: #ff4500; /* bright fire orange hover */
+    border-color: #e03e00; /* slightly darker border on hover */
 }
