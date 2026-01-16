@@ -24,55 +24,8 @@ export default function Maps() {
     }, []);
 
 
-    const gridData = files.map(f => {
-        const ext = f.name.split(".").pop().toUpperCase();
-        const viewUrl =
-            ext === "PDF"
-                ? `https://docs.google.com/gview?url=${encodeURIComponent(f.url)}&embedded=false`
-                : f.url;
+    const gridData = files.map(f => [f.name, f.url]);
 
-        return [
-            h(
-                "button",
-                {
-                    style: {
-                        width: "100%",
-                        height: "100%",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        padding: "10px",
-                        textAlign: "left",
-                        fontSize: "16px"
-                    },
-                    onClick: () => window.open(viewUrl, "_blank")
-                },
-                f.name
-            ),
-            h(
-                "a",
-                {
-                    style: {
-                        display: "inline-block",
-                        width: "100%",
-                        height: "100%",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        textDecoration: "none",
-                        padding: "10px 0",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-                        color: "black"
-                    },
-                    href: f.url,
-                    download: f.name,
-                    target: "_blank",
-                    rel: "noopener noreferrer"
-                },
-                "Download"
-            )
-        ];
-    });
 
     return (
         <div
@@ -101,12 +54,66 @@ export default function Maps() {
                 <Grid
                     data={gridData}
                     columns={[
-                        { name: "File Name" },
-                        { name: "Actions" }
+                        {
+                            name: "File Name",
+                            formatter: (cell, row) => {
+                                const url = row.cells[1].data;
+                                const ext = cell.split(".").pop().toUpperCase();
+                                const viewUrl =
+                                    ext === "PDF"
+                                        ? `https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=false`
+                                        : url;
+
+                                return h(
+                                    "button",
+                                    {
+                                        style: {
+                                            width: "100%",
+                                            height: "100%",
+                                            background: "none",
+                                            border: "none",
+                                            cursor: "pointer",
+                                            padding: "10px",
+                                            textAlign: "left",
+                                            fontSize: "16px"
+                                        },
+                                        onClick: () => window.open(viewUrl, "_blank")
+                                    },
+                                    cell // cell is the file name
+                                );
+                            }
+                        },
+                        {
+                            name: "Actions",
+                            formatter: (cell) =>
+                                h(
+                                    "a",
+                                    {
+                                        style: {
+                                            display: "inline-block",
+                                            width: "100%",
+                                            height: "100%",
+                                            textAlign: "center",
+                                            fontWeight: "bold",
+                                            textDecoration: "none",
+                                            padding: "10px 0",
+                                            borderRadius: "5px",
+                                            cursor: "pointer",
+                                            color: "black"
+                                        },
+                                        href: cell,
+                                        download: cell.split("/").pop(),
+                                        target: "_blank",
+                                        rel: "noopener noreferrer"
+                                    },
+                                    "Download"
+                                )
+                        }
                     ]}
                     search={true}
                     pagination={{ enabled: true, limit: 20 }}
                 />
+
             )}
         </div>
     );
